@@ -1,0 +1,55 @@
+{% extends 'base1.html' %}
+
+
+
+{% block title %}
+Zmień dane użytkownika
+{% endblock %}
+
+
+{%block content %}
+
+
+
+<div class="niezalogowany">
+  Jesteś zalogowany <font color="blue"> {{ user.username }}!</font>
+      Witaj {{ user.first_name}}
+  </div>
+
+
+{% if  checkstat or not  statusdate %}
+
+<div class="niezalogowany">
+           <div align="center" class="alert alert-danger w-100 p-3 h-25">
+               <button>Zablokowano aktualizację ocen / punktów dla kandydata</button>
+            </div>
+        </div>
+{% else %}
+<div class="niezalogowany">
+    <form  method = 'POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit" >Wyślij</button>
+    </form>
+</div>
+{% endif %}
+
+
+{% if messages %}
+   {% for message in messages %}
+            <div class="container-fluid p-0">
+              <div class="alert alert-warning {{ message.tags }} fixed-bottom text-center " role="alert" >
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                {{ message }}
+              </div>
+            </div>
+        {% endfor %}
+{% endif %}
+
+
+
+{% endblock %}

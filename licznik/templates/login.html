@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{% endblock %}
+
+{%block content %}
+<div class="niezalogowany">
+    <form method = "POST">
+         {% csrf_token %}
+        {{ form.as_table }}
+
+        <input type = "submit" value = "Wyślij">
+    </form>
+</div>
+
+<!--        <form method="post" action="">-->
+<!--            {% csrf_token %}-->
+
+<!--                        <div class="centered"  id="wrapper">-->
+<!--                            <div id="first">-->
+<!--                                <input type="text" name="username" placeholder="Nazwa użytkownika">-->
+<!--                                <input type="password" name="password" placeholder="Hasło"><br>-->
+<!--                                Regulamin<input type="checkbox" name="statue" value="True">-->
+<!--                                <br>-->
+
+<!--                            </div>-->
+<!--                            <div id="second">-->
+<!--                                {{form.captcha}}-->
+<!--                                  <input type="submit" value="Zapisz">-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+
+<!--        </form>-->
+
+
+
+
+{% endblock %}

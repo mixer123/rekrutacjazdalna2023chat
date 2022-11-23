@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+Zmień status
+{% endblock %}
+
+
+{%block content %}
+
+
+Witaj {{ user }}<br>
+
+Zablokuj/odblokuj aktualizację ocen/punktów dla kandydata
+
+<br>
+Data początkowa rekrutacji {{ comment }}<br>
+Data końcowa rekrutacji {{ comment }}<br>
+<form  method = 'POST' enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit" class="btn btn-lg btn-warning">Submit</button>
+    </form>
+{% endblock %}

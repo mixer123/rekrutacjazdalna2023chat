@@ -1,0 +1,27 @@
+{% extends 'base1.html' %}
+
+
+
+{% block title %}
+    Rekrutacja 2022
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+  <div class="niezalogowany">
+  Jesteś zalogowany <font color="blue"> {{ user.username }}!</font>
+      Witaj {{ kandydat.user.first_name}}
+  </div>
+
+{% else %}
+    <div class="niezalogowany">
+        Jesteś nie zalogowany  <a href="{% url 'login-page' %}">Zaloguj</a>
+    </div>
+
+
+
+{% endif %}
+
+
+{% endblock %}

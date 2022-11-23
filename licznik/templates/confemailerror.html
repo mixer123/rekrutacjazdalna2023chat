@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    Rekrutacja 2022
+{% endblock %}
+
+{% block content %}
+   {% if messages %}
+
+   {% for message in messages %}
+            <div class="container-fluid p-0">
+              <div class="alert alert-danger {{ message.tags }} fixed-bottom text-center " role="alert" >
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                {{ message }}
+              </div>
+            </div>
+        {% endfor %}
+
+{% endif %}
+
+{% endblock %}

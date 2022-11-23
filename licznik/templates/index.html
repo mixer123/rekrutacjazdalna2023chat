@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    Rekrutacja 2023
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+      <div class="niezalogowany">
+      Jesteś zalogowany <font color="blue"> {{ user.username }}!</font>
+          Witaj {{ user.first_name}}
+      </div>
+    {% else %}
+        <div class="niezalogowany">
+            Jesteś nie zalogowany  <a href="/login/">Zaloguj</a>
+        </div>
+    {% endif %}
+{% endblock %}

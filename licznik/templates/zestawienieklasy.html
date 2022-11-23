@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static%}
+{%block title %}
+
+{% endblock %}
+
+
+{%block content %}
+
+<table id="oryginal">
+    <thead>
+        <tr>
+               <th scope="col">Szkoła</th>
+              <th scope="col">Klasa</th>
+              <th scope="col">Dokument</th>
+              <th scope="col">Ilość</th>
+        </tr>
+    </thead>
+    <tbody>
+     {% for k in kand_docum %}
+        <tr>
+            <td>{{ k.clas__school__name }}</td>
+            <td>{{ k.clas__name }}</td>
+            <td>{{ k.document__name }}</td>
+            <td>{{ k.m }}</td>
+        </tr>
+
+     {% endfor %}
+    </tbody>
+</table>
+<h1></h1><br>
+<!--    {% if list_candidates|length > 0 %}-->
+<!--        <h2>Lista kandydatów z oryginalnymi świadectwami</h2><br>-->
+<!--        {% for c in list_candidates %}-->
+<!--            {{ c.clas}}<br>-->
+<!--            {% for kan in c %}-->
+<!--                 {{ kan }}-->
+<!--            {% endfor %}-->
+<!--            <br>-->
+<!--        {% endfor %}-->
+<!--    {% endif %}-->
+<!--{% if list_candidates_kopia|length > 0 %}-->
+<!--<h2>Lista kandydatów z kopiami świadectwami</h2><br>-->
+<!--    {% for c in list_candidates_kopia %}-->
+<!--        {% for kan in c %}-->
+<!--             {{ kan }}-->
+<!--        {% endfor %}-->
+<!--        <br>-->
+<!--    {% endfor %}-->
+<!--{% endif %}-->
+
+<!--{% if list_candidates_podanie|length > 0 %}-->
+<!--<h2>Lista kandydatów z  podaniami</h2><br>-->
+
+<!--    {% for c in list_candidates_podanie %}-->
+<!--        {% for kan in c %}-->
+<!--             {{ kan }}-->
+<!--        {% endfor %}-->
+<!--        <br>-->
+<!--    {% endfor %}-->
+<!--{% endif %}-->
+
+{% if messages %}
+   {% for message in messages %}
+            <div class="container-fluid p-0">
+              <div class="alert alert-warning {{ message.tags }} fixed-bottom text-center " role="alert" >
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                {{ message }}
+              </div>
+            </div>
+        {% endfor %}
+{% endif %}
+
+
+
+
+
+
+{% endblock %}

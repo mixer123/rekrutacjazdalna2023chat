@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+Ogłoszenie
+{% endblock %}
+
+
+{%block content %}
+
+
+
+<div class="niezalogowany">
+    <h2>Jesteś zalogowany <font color="blue"> {{ user.username }}! </font>Witaj {{ user.first_name}}</h2>
+</div>
+<div class="niezalogowany_red">
+    <h3>Ogłoszenia</h3>
+    {% for post in allposts %}
+        {{ post.date }}
+        {{ post.text }}
+    <br>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'admin/licznik/kandydat/change_list.html' %}
+{% block object-tools-items %}
+
+    {{ block.super }}
+
+    <li>
+    <a href="/zestawienie/" class="grp-state-focus "> Zestawienie </a>
+           </li>
+   <li>
+        <a href="/admin/licznik/kandydat/export/?" class="export_link"> Lista kandydatów</a>
+    </li>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Rejestracja{% endblock %}
+
+{% block content %}
+
+{% if not request.user.is_authenticated   %}
+<h2>Utwórz konto</h2>
+    <form method="post">
+      {% csrf_token %}
+      <table>
+          {{ form.as_table }}
+      </table>
+      <button type="submit">Utwórz konto</button>
+    </form>
+{% endif%}
+{% if  request.user.is_authenticated   %}
+  Konto istnieje
+{% endif%}
+{% endblock %}
